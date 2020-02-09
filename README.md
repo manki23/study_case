@@ -4,6 +4,10 @@
 
 L'objectif est de créer une application qui propose un formulaire d'inscription à une newsletter.
 
+## Remarque préliminaire
+
+Ne pas se concentrer sur le style des pages. Uniquement sur la logique
+
 ## Etapes à suivre
 
 1. Créer un modèle Contact avec les attributs suivants :
@@ -26,6 +30,12 @@ L'objectif est de créer une application qui propose un formulaire d'inscription
 
 5. Rajouter la bibliothèque javascript SlimSelect (http://slimselectjs.com) sur le select pour permettre une meilleure saisie
 
-6. Optionnel 1 : Mettre en place un autocomplete sur le champ select. Donc à chaque fois que je tape une lettre dans le champ select, un call AJAX s'opère et renvoie dans la liste des options du select les choix possibles, comme lorsqu'on tape sur la barre de recherche google
+6. Mettre en place un autocomplete sur le champ select. Donc à chaque fois que je tape une lettre dans le champ select, un call AJAX s'opère et renvoie dans la liste des options du select les choix possibles, comme lorsqu'on tape sur la barre de recherche google
 
-3. Optionnel 2 : Mettre en forme les deux pages
+Faire les optionnels **dans l'ordre** :
+
+7. Optionnel 1 : Mettre en place des validations sur le modèle Contact
+
+8. Optionnel 2 : Mettre en place une action delete et update
+
+9. Optionnel 3 : Mettre en forme les deux pages

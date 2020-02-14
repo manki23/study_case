@@ -6,7 +6,7 @@ L'objectif est de créer une application qui propose un formulaire d'inscription
 
 ## Remarque préliminaire
 
-Ne pas se concentrer sur le style des pages. Uniquement sur la logique
+Ne pas se concentrer sur le style des pages. Uniquement sur la logique.
 
 ## Etapes à suivre
 
@@ -16,13 +16,14 @@ Ne pas se concentrer sur le style des pages. Uniquement sur la logique
 - Email
 - Interest
 
-2. Créer deux routes :
+2. Créer trois routes :
 - Index : pour voir la liste des inscrits
 - New : pour s'inscrire sur la newsletter
+- Create : pour créer le contact
 
-3. Créer le controller correspondant avec les deux actions nécessaires
+3. Créer le controller correspondant avec les actions nécessaires
 
-4. Mettre en place les deux vues
+4. Mettre en place les vues
 - Index : afficher sous forme de liste l'ensemble des gens inscrits
 - New : afficher le formulaire pour pouvoir s'inscrire
     - Utiliser le form_with tag: https://guides.rubyonrails.org/form_helpers.html (rajouter l'option local: true au tag form_with pour rester en HTML et non en AJAX)
@@ -32,10 +33,16 @@ Ne pas se concentrer sur le style des pages. Uniquement sur la logique
 
 6. Mettre en place un autocomplete sur le champ select. Donc à chaque fois que je tape une lettre dans le champ select, un call AJAX s'opère et renvoie dans la liste des options du select les choix possibles, comme lorsqu'on tape sur la barre de recherche google
 
+7. Ajouter au moins une dizaine de contacts avec des intérêts différents.
+
+7. Maintenant, nous souhaitons visualiser un camembert de la proportion de personnes par centre d'intérêt. 
+- Pour cela, intégrer la librairie plotly.js (documentation : https://plot.ly/javascript/)
+- Ajouter une nouvelle vue dans lequel tu inséreras la visualisation du camembert.
+
 Faire les optionnels **dans l'ordre** :
 
 7. Optionnel 1 : Mettre en place des validations sur le modèle Contact
 
 8. Optionnel 2 : Mettre en place une action delete et update
 
-9. Optionnel 3 : Mettre en forme les deux pages
+9. Optionnel 3 : Mettre en forme les pages

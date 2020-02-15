@@ -35,7 +35,7 @@ Ne pas se concentrer sur le style des pages. Uniquement sur la logique.
 
 7. Ajouter au moins une dizaine de contacts avec des intérêts différents.
 
-7. Maintenant, nous souhaitons visualiser un camembert de la proportion de personnes par centre d'intérêt. 
+7. Maintenant, nous souhaitons visualiser un camembert de le nombre de personnes par centre d'intérêt (par exemple : 10 personnes intéressées par la science fiction, 5 par la comédie et 7 par le drame)
 - Pour cela, intégrer la librairie plotly.js (documentation : https://plot.ly/javascript/)
 - Ajouter une nouvelle vue dans lequel tu inséreras la visualisation du camembert.
 

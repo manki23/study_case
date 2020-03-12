@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_191326) do
+ActiveRecord::Schema.define(version: 2020_03_12_091101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,17 @@ ActiveRecord::Schema.define(version: 2020_03_11_191326) do
     t.string "name"
     t.string "phone"
     t.string "email"
-    t.text "interest"
+    t.integer "interest_id"
+    t.index ["interest_id"], name: "index_contacts_on_interest_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "newsletter_subscribers", force: :cascade do |t|
+    t.integer "subscriber_id"
+    t.index ["subscriber_id"], name: "index_newsletter_subscribers_on_subscriber_id"
   end
 
 end

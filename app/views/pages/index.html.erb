@@ -1,2 +1,16 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<h1>Subscribers list</h1>
+<% @contacts.each do |c| %>
+  <p>id = <%= c.id %> | <%= c.name %> | <%= c.phone %> | <%= c.email %> 
+  | <% if @interests.exists?(c.interest_id) %>
+         <%= @interests.find(c.interest_id).name %> <%= c.interest_id %>
+    <% else %>
+      no interest <%= c.interest_id %>
+    <% end %>
+  | <% if @subs.exists?(subscriber_id: c.id) %>
+      contact ON the newsletter
+    <% else %>
+      contact NOT on the newsletter
+    <% end %>
+  </p>
+<% end %>
+<p><a href="/">Go back to homepage</a></p>

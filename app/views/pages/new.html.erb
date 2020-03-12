@@ -1,0 +1,31 @@
+<h1>Subscribe to the newsletter</h1>
+<%= form_with url: "/new", method: "post", local: true do %>
+  <p>
+    <input type="text" name="name" placeholder="name" required>
+    <%= @contact.errors[:name].first if @contact %>
+  </p>
+  <p>
+    <input type="tel" name="phone" placeholder="phone">
+    <%= @contact.errors[:phone].first if @contact %>
+  </p>
+  <p>
+    <input type="email" name="email" placeholder="email" required>
+    <%= @contact.errors[:email].first if @contact %>
+  </p>
+  <p>
+    <select name="interest_id" required>
+      <option value="">--Choose an Interest--</option>
+      <% @interests.each do |i| %>
+        <option value="<%= i.id %>"><%= i.name %></option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    <%= check_box_tag(:newsletter_subscriber) %>
+    <%= label_tag(:newsletter_subscriber, "Subscribe to our newsletter") %>
+  </p>
+  <p>
+    <input type="submit" value="Create">
+  </p>
+<% end %>
+<p><a href="/">Go back to homepage</a></p>

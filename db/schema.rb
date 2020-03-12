@@ -10,17 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_091101) do
+ActiveRecord::Schema.define(version: 2020_03_12_161757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_interests", force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "interest_id"
+    t.index ["contact_id"], name: "index_contact_interests_on_contact_id"
+    t.index ["interest_id"], name: "index_contact_interests_on_interest_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "phone"
     t.string "email"
-    t.integer "interest_id"
-    t.index ["interest_id"], name: "index_contacts_on_interest_id"
   end
 
   create_table "interests", force: :cascade do |t|

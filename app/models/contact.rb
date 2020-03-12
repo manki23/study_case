@@ -1,6 +1,4 @@
 class Contact < ActiveRecord::Base
-  has_many :interest
-
   validates :name, presence: {
     message: "Name must be filled"
   }

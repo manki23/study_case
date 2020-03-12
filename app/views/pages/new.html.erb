@@ -1,4 +1,9 @@
 <h1>Subscribe to the newsletter</h1>
+<script>
+  new SlimSelect({
+    select: '#multi'
+  })
+</script>
 <%= form_with url: "/new", method: "post", local: true do %>
   <p>
     <input type="text" name="name" placeholder="name" required>
@@ -13,12 +18,7 @@
     <%= @contact.errors[:email].first if @contact %>
   </p>
   <p>
-    <select name="interest_id" required>
-      <option value="">--Choose an Interest--</option>
-      <% @interests.each do |i| %>
-        <option value="<%= i.id %>"><%= i.name %></option>
-      <% end %>
-    </select>
+  <%= select_tag "multi", options_from_collection_for_select(@interests, 'id', 'name'), :multiple => true, :required => true %>
   </p>
   <p>
     <%= check_box_tag(:newsletter_subscriber) %>

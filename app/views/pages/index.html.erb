@@ -1,17 +1,26 @@
 <h1>Subscribers list</h1>
-<% @contacts.each do |c| %>
-  <p>id = <%= c.id %> | <%= c.name %> | <%= c.phone %> | <%= c.email %>|
-    <% @contact_interests.each do |c_i| %>
-      <% if c_i.contact_id == c.id && @interests.exists?(c_i.interest_id) %>
-        <%= @interests.find(c_i.interest_id).name %>
-      <% end %>
-    <% end %>
-    |
-    <% if @subs.exists?(subscriber_id: c.id) %>
-      contact ON the newsletter
-    <% else %>
-      contact NOT on the newsletter
-    <% end %>
-  </p>
-<% end %>
 <p><a href="/">Go back to homepage</a></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Interest(s)</th>
+  </tr>
+  <% @contacts.each do |c| %>
+    <% if @subs.exists?(subscriber_id: c.id) %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.phone %></td>
+        <td><%= c.email %></td>
+        <td>
+          <% @contact_interests.each do |c_i| %>
+            <% if c_i.contact_id == c.id && @interests.exists?(c_i.interest_id) %>
+              <%= @interests.find(c_i.interest_id).name %>, 
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

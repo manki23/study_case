@@ -1,4 +1,5 @@
 <h1>Subscribe to the newsletter</h1>
+<p><a href="/">Go back to homepage</a></p>
 <script>
   new SlimSelect({
     select: '#multi'
@@ -18,7 +19,7 @@
     <%= @contact.errors[:email].first if @contact %>
   </p>
   <p>
-  <%= select_tag "multi", options_from_collection_for_select(@interests, 'id', 'name'), :multiple => true, :required => true %>
+    <%= select_tag "multi", options_from_collection_for_select(@interests, 'id', 'name'), :multiple => true, :required => true, :autocomplete => true %>
   </p>
   <p>
     <%= check_box_tag(:newsletter_subscriber) %>
@@ -28,4 +29,3 @@
     <input type="submit" value="Create">
   </p>
 <% end %>
-<p><a href="/">Go back to homepage</a></p>

@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'admin' => 'pages#admin'
   delete 'admin' => 'pages#delete'
   patch 'admin' => 'pages#update'
+  get 'pie' => 'pages#pie_chart'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

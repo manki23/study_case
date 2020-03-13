@@ -68,4 +68,9 @@ class PagesController < ApplicationController
     @user.destroy
     redirect_to "/admin"
   end
+  def pie_chart
+    @interests = Interest.all
+    @contact_interests = ContactInterest.all
+  end
+
 end

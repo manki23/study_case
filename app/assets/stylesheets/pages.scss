@@ -1,3 +1,43 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+	background-color: #FFF1EB;
+	text-align: center;
+	color: #2E2B2A
+}
+
+th {
+	background-color:#C6F3B7;
+	padding:0px;
+}
+
+
+td {
+	background-color: whitesmoke;
+	padding:0px;
+}
+
+form, table, .content {
+	width: 100%;
+	margin: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background:#C6F3B7;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 5px 5px 10px black;
+	border-collapse: collapse;
+
+}
+
+tr:hover {
+	background-color: #C9FFF4;
+	color: #4FA7FF;
+	
+}
+
+div.contact_form {
+	padding-right: 42%;
+	text-align: right;
+}

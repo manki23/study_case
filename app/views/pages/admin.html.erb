@@ -20,13 +20,7 @@
       <td><%= c.name %></td>
       <td><%= c.phone %></td>
       <td><%= c.email %></td>
-      <td>
-        <% @contact_interests.each do |c_i| %>
-          <% if c_i.contact_id == c.id && @interests.exists?(c_i.interest_id) %>
-            <%= @interests.find(c_i.interest_id).name %>, 
-          <% end %>
-        <% end %>
-      </td>
+      <td><%= display_interests @contact_interests, @interests, c%></td>
       <td>
         <% if @subs.exists?(subscriber_id: c.id) %>
           YES
@@ -38,15 +32,21 @@
   <% end %>
 </table>
 <h2>Update a user by id</h2>
+<p><%= @errors %></p>
 <%= form_with url: "/admin", method: "patch", local: true do %>
+  <div class="contact_form">
+    <p>ID: <input type="number" name="id" placeholder="id (NOT changed)" required></p>
+    <p>Name: <input type="text" name="name" placeholder="new name"></p>
+    <p>Phone: <input type="tel" name="phone" placeholder="new phone"></p>
+    <p>Email: <input type="email" name="email" placeholder="new email"></p>
+  </div>
+  <p> Add new Interests :</p>
   <p>
-    <input type="number" name="id" placeholder="id (NOT changed)" required>
-    <input type="text" name="name" placeholder="new name">
-    <input type="tel" name="phone" placeholder="new phone">
-    <input type="email" name="email" placeholder="new email">
+    <%= select_tag "multi", options_from_collection_for_select(@interests, 'id', 'name'), :multiple => true, :required => false, :autocomplete => true %>
   </p>
   <p>
-    <%= select_tag "multi", options_from_collection_for_select(@interests, 'id', 'name'), :multiple => true, :required => true, :autocomplete => true %>
+    <%= check_box_tag(:delete_old_interests) %>
+    <%= label_tag(:delete_old_interests, "Delete old interests") %>
   </p>
   <p>
     <%= check_box_tag(:newsletter_subscriber) %>
@@ -59,7 +59,7 @@
 
 <h2>Delete a user</h2>
 <%= form_with url: "/admin", method: "delete", local: true do %>
-  <input type="number" name="user_id" placeholder="enter user ID" required>
+  ID: <input type="number" name="user_id" placeholder="enter user ID" required>
   <input type="submit" value="DELETE">
 <% end %>
 <h2>Interests List</h2>

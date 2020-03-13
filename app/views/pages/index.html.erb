@@ -13,13 +13,7 @@
         <td><%= c.name %></td>
         <td><%= c.phone %></td>
         <td><%= c.email %></td>
-        <td>
-          <% @contact_interests.each do |c_i| %>
-            <% if c_i.contact_id == c.id && @interests.exists?(c_i.interest_id) %>
-              <%= @interests.find(c_i.interest_id).name %>, 
-            <% end %>
-          <% end %>
-        </td>
+        <td><%= display_interests @contact_interests, @interests, c%></td>
       </tr>
     <% end %>
   <% end %>

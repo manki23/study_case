@@ -21,11 +21,14 @@
     <% end %> 
     ],
     type: 'pie'
+
   }];
 
   var layout = {
     height: 500,
-    width: 600
+    width: 600,
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    paper_bgcolor: 'rgba(0,0,0,0)'
   };
 
   Plotly.newPlot('tester', data, layout);

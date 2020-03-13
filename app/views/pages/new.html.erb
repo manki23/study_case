@@ -6,18 +6,21 @@
   })
 </script>
 <%= form_with url: "/new", method: "post", local: true do %>
+  <div class="contact_form">
   <p>
-    <input type="text" name="name" placeholder="name" required>
+    Name: <input type="text" name="name" placeholder="name" required>
     <%= @contact.errors[:name].first if @contact %>
   </p>
   <p>
-    <input type="tel" name="phone" placeholder="phone">
+    Phone number: <input type="tel" name="phone" placeholder="phone">
     <%= @contact.errors[:phone].first if @contact %>
   </p>
   <p>
-    <input type="email" name="email" placeholder="email" required>
+    Email: <input type="email" name="email" placeholder="email" required>
     <%= @contact.errors[:email].first if @contact %>
   </p>
+  </div>
+  <p> Add your Interests :</p>
   <p>
     <%= select_tag "multi", options_from_collection_for_select(@interests, 'id', 'name'), :multiple => true, :required => true, :autocomplete => true %>
   </p>
